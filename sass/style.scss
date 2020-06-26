@@ -1,0 +1,309 @@
+// @package Davenports
+//sass --watch sass:css
+//================================
+//Pallete
+//================================
+$spf: #9ac2ba;
+$lavender: #776871;
+$onyx: #3F403F;
+$lavenderGray: #CFCCD6;
+$mintCream: #F0F7EE;
+$offWhite : #f7f3ea;
+//
+//================================================
+// Mixins
+//================================================
+@mixin animate ($attr, $time) {
+  -webkit-transition: $attr $time ease;
+  -moz-transition: $attr $time ease;
+  -ms-transition: $attr $time ease;
+  -o-transition: $attr $time ease;
+  transition: $attr $time ease;
+}
+@mixin transform ($value) {
+  -webkit-transform: $value;
+  -moz-transform: $value;
+  -ms-transform: $value;
+  -o-transform: $value;
+  transform: $value;
+}
+//=========================================
+// Global
+//=========================================
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "helvetica", Arial, sans-serif;
+  position: relative;
+  overflow-y: scroll;
+}
+h2{
+  text-decoration: underline;
+}
+
+.parallaxPlate {
+  background-color: $offWhite;
+}
+//==========================================
+//Navbar
+//==========================================
+
+nav#navbarSite {
+  background-color: $spf;
+  min-height: 95px;
+  box-shadow: -1px 0 15px 5px #222;
+}
+
+div#myToggleNav {
+  margin-left: 20px;
+}
+
+#socialLinks a {
+  display: inline-block;
+  font-size: 30px;
+}
+@media screen and (max-width: 991px) {
+  #socialLinks a {
+    margin-right: 20px;
+    font-size: 45px;
+  }
+}
+
+#fb-link:hover {
+  color: #3b5998;
+  @include animate(color, 500ms);
+}
+
+#ig-link:hover {
+  //color: #cc2366;
+  color: transparent;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  @include animate(all, 500ms);
+}
+
+#gb-link:hover {
+  color: #db4a39;
+  @include animate(color, 500ms);
+}
+
+ul.navbar-nav.justify-content-center {
+  align-items: baseline;
+}
+
+.navbar-text {
+  color: $onyx;
+  font-size: 15px;
+  font-style: italic;
+  width: 230px;
+}
+
+a.nav-link {
+  font-size: 20px;
+  font-weight: 800;
+  color: $onyx;
+
+  &:hover
+  &:focus {
+    opacity: 0.4;
+    @include animate(color, 500ms);
+  }
+
+  &.active {
+    color: $offWhite;
+    @include animate(color, 500ms);
+  }
+}
+//hamburger animation
+
+.nav-icon {
+  margin: 1em;
+  width: 40px;
+}
+
+.nav-icon div,
+.nav-icon:after,
+.nav-icon:before {
+  background-color: $onyx;
+  border-radius: 3px;
+  content: '';
+  display: block;
+  height: 5px;
+  margin: 7px 0;
+  @include animate (all, 400ms);
+
+  &:hover {
+    color: #000;
+  }
+}
+
+.x.nav-icon:before {
+  @include transform(translateY(12px) rotate(135deg));
+}
+
+.x.nav-icon:after {
+  @include transform(translateY(-12px) rotate(-135deg));
+}
+
+.x.nav-icon div {
+  @include transform(scale(0));
+}
+//============================================
+//Carousel animation
+//============================================
+#pageTop{
+  position: relative;
+  top: -150px;
+  visibility: hidden;
+}
+
+div#featured {
+  margin-top: 95px;
+}
+
+#featured.carousel.carousel-fade .carousel-item {
+  display: block;
+  position: fixed;
+  opacity: 0;
+  transition: opacity ease-out 0.7s;
+  z-index: -1;
+  margin-top: 95px;
+}
+
+#featured.carousel.carousel-fade .carousel-item.active {
+  opacity: 1 !important;
+}
+//============================================
+//Welcome
+//============================================
+
+#aboutSection {
+  position: relative;
+  top: -140px;
+  visibility: hidden;
+  }
+
+.welcomeMessage {
+  z-index: 120;
+  padding-top: 50px;
+  h2 {
+    margin-top: 0;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 20px;
+    color: $onyx;
+  }
+  p{
+    color: $onyx;
+    text-align: center;
+  }
+}
+//============================================
+//Service Section
+//============================================
+
+#serviceSection {
+  position: relative;
+  top: -120px;
+  visibility: hidden;
+}
+.service-container {
+  margin-top: 30px;
+  h2 {
+    margin-top: 0;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 20px;
+    color: $onyx;
+  }
+  p{
+    color: $onyx;
+    text-align: center;
+  }
+}
+.card {
+  box-shadow: 3px 4px 5px $onyx;
+  border: none;
+}
+a.btn {
+  background-color: $spf;
+  color: $onyx;
+  font-weight: 700;
+}
+div.p.card-text{
+  text-align: left;
+}
+//============================================
+//FAQ's
+//============================================
+.faq-container{
+  margin-top: 50px;
+  h2 {
+    margin-top: 0;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 20px;
+    color: $onyx;
+  }
+  p{
+    color: $onyx;
+    text-align: center;
+  }
+}
+#FAQsection {
+  position: relative;
+  top: -130px;
+  visibility: hidden;
+}
+
+//============================================
+//Contact Form
+//============================================
+
+#contactForm {
+  position: relative;
+  top: -120px;
+  visibility: hidden;
+}
+
+.contact-container {
+  padding-top: 30px;
+  padding-bottom: 40px;
+  a.btn.btn-lg {
+    background-color: $spf;
+    color: $onyx;
+    font-weight: 700;
+  }
+}
+//============================================
+//Footer
+//============================================
+
+footer {
+  background-color: $onyx;
+  padding-bottom: 10px;
+  padding-top: 30px;
+
+  p {
+    color: #fff;
+    text-align: center;
+  }
+}
+//============================================
+//Responsive
+//============================================
+@media only screen and (max-width: 410px) {
+  .navbar-brand img {
+    width: 190px;
+  }
+
+  .nav-icon {
+    margin: 1em 0.1em;
+    width: 40px;
+  }
+}
